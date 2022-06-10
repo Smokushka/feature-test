@@ -1,0 +1,12 @@
+name: "Feature Test"
+description: "Create an unmanaged scratch org and run Apex tests"
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - name: Run CumulusCI Flow
+      uses: cumulusci-actions/execute-cumulusci-flow@main
+      with:
+        dev-hub-auth-url: ${{ secrets.AUTH_URL }}
+        org-name: feature
+        flow-name: ci_feature
